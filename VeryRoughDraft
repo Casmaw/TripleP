@@ -1,0 +1,134 @@
+from tkinter import * #importing tkinter
+
+root = Tk() #create the root widget
+
+#label the window
+#set window colors
+
+mainLabel = Label(root, text = "Please select crust :")
+mainLabel.grid(row = 1, column = 2)
+
+#I've decided that the toppings will be a list
+toppingsList = []
+
+#define the button functions and place the results 
+def small():
+    labelSmall = Label(root, text="Small")
+    labelSmall.grid(row = 3, column = 2)
+def medium():
+    labelMedium = Label(root, text="Med")
+    labelMedium.grid(row = 3, column = 2)
+def large():
+    labelLarge = Label(root, text="Large")
+    labelLarge.grid(row = 3, column = 2)
+    
+#I feel that crust is okay with a replacing value, since the size will only be one
+#Perhaps the toppings need to be made into a list so they fit better on the window?
+#Or I guess I could have them go by rows, since tkinter will leave out blank rows...
+   
+def xcheese():
+#Perhaps when clicked check to see if it is already in the list, and if it is not, add it
+#Then maybe have it display the list each time a toppings button is clicked?
+    labelXCheese = Label(root, text="Extra Cheese")
+    labelXCheese.grid(row = 7, column = 2)
+def tomatoes():
+    labelTomatoes = Label(root, text = "Tomatoes")
+    labelTomatoes.grid(row = 8, column = 2)
+def onions():
+    labelOnions = Label(root, text = "Onions")
+    labelOnions.grid(row = 9, column = 2)
+def peppers():
+    labelPeppers = Label(root, text = "Peppers")
+    labelPeppers.grid(row = 10, column = 2)
+def mushrooms():
+    labelMushrooms = Label(root, text = "Mushrooms")
+    labelMushrooms.grid(row = 11, column = 2)
+def pineapple():
+    labelPineapple = Label(root, text = "Pineapple")
+    labelPineapple.grid(row = 12, column = 2)
+def pepperoni():
+    labelPepperoni = Label(root, text = "Pepperoni")
+    labelPepperoni.grid(row = 13, column = 2)
+def sausage():
+    labelSausage = Label(root, text = "Sausage")
+    labelSausage.grid(row = 14, column = 2)
+def ham():
+    labelHam = Label(root, text = "Ham")
+    labelHam.grid(row = 15, column = 2)
+
+#I will write this later
+def thin():
+    pass
+def toss():
+    pass
+def pan():
+    pass
+
+def marinara():
+    pass
+def buffalo():
+    pass
+def bbq():
+    pass
+
+
+def submit():
+    pass
+def theExit():
+    pass
+
+#define the buttons and place them
+#Thinking about making my buttons a consistent size instead of auto size...
+crustSmall = Button(root, text ="Small", command=small)
+crustSmall.grid(row = 2, column = 1)
+crustMedium = Button(root, text = "Medium", command = medium)
+crustMedium.grid(row = 2, column = 2)
+crustLarge = Button(root, text = "Large", command = large)
+crustLarge.grid(row = 2, column = 3)
+#Toppings
+extraCheeseTop = Button(root, text = "Extra Cheese", command = xcheese)
+extraCheeseTop.grid(row = 4, column = 1)
+tomatoesTop = Button(root, text = "Tomatoes", command = tomatoes)
+tomatoesTop.grid(row = 4, column = 2)
+onionsTop = Button(root, text = "Onions", command = onions)
+onionsTop.grid(row = 4, column = 3)
+peppersTop = Button(root, text = "Peppers", command = peppers)
+peppersTop.grid(row = 5, column = 1)
+mushroomsTop = Button(root, text = "Mushrooms", command = mushrooms)
+mushroomsTop.grid(row = 5, column = 2)
+pineappleTop = Button(root, text = "Pineapple", command = pineapple)
+pineappleTop.grid(row = 5, column = 3)
+pepTop = Button(root, text = "Pepperoni", command = pepperoni)
+pepTop.grid(row = 6, column = 1)
+sausageTop = Button(root, text = "Sausage", command = sausage)
+sausageTop.grid(row = 6, column = 2)
+hamTop = Button(root, text = "Ham", command = ham)
+hamTop.grid(row = 6, column = 3)
+#Crust Type
+crustThin = Button(root, text = "Thin", command = thin, state = DISABLED)
+crustThin.grid(row = 16, column = 1)
+crustToss = Button(root, text = "Hand Tossed", command = toss, state = DISABLED)
+crustToss.grid(row = 16, column = 2)
+crustPan = Button(root, text = "Pan", command = pan, state = DISABLED)
+crustPan.grid(row = 16, column = 3)
+#Row 17 would be for result?
+#Sauces
+marinaraSauce = Button(root, text = "Marinara", command = marinara,state = DISABLED)
+marinaraSauce.grid(row = 18, column = 1)
+buffaloSauce = Button(root, text = "Buffalo", command = buffalo,state = DISABLED)
+buffaloSauce.grid(row = 18, column = 2)
+bbqSauce = Button(root, text = "BBQ", command = bbq,state = DISABLED)
+bbqSauce.grid(row = 18, column = 3)
+
+#needs a submit button that opens a new window that displays order to confirm
+subButton = Button(root, text = "Submit", command = submit, state = DISABLED)
+subButton.grid(row = 42, column = 3)
+#needs an exit button
+exitButton = Button(root, text = "Exit", command = theExit, state = DISABLED)
+exitButton.grid(row = 42, column = 1)
+#needs a button that creates a new pizza to add to the order
+
+#Data validation: Crust size, type, and sauce will be required choices
+#Create an entry box for customer name/phone?
+
+root.maninloop() #create an event loop
