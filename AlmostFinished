@@ -1,0 +1,241 @@
+from tkinter import * #importing tkinter
+
+root = Tk() #create the root widget
+root.title("Hello")
+
+size = ""
+theType = ""
+sauce = ""
+priceCrust = 0.0
+toppings = []
+priceToppings = 0.0
+totalPrice = 0.0
+
+#create the functions for pizza size
+def endPrice():
+    global totalPrice
+    totalPrice = priceCrust + (len(toppings) * .50)
+    
+
+def small():
+    global size
+    global priceCrust
+    labelSmall = Label(root, text="Small")
+    labelSmall.grid(row = 3, column = 2)
+    size = "small"
+    priceCrust = 15.00
+    return size
+    return priceCrust
+
+
+def medium():
+    global size
+    global priceCrust
+    labelMedium = Label(root, text="Med")
+    labelMedium.grid(row = 3, column = 2)
+    size = "medium"
+    priceCrust = 18.00
+    return size
+    return priceCrust
+
+def large():
+    global size
+    global priceCrust
+    labelLarge = Label(root, text="Large")
+    labelLarge.grid(row = 3, column = 2)
+    size = "large"
+    priceCrust = 21.00
+    return size
+    return priceCrust
+
+#create the functions for pizza type
+def thin():
+    global theType
+    labelThin = Label(root, text = "      Thin      ")
+    labelThin.grid(row = 17, column = 2)                  
+    theType = "thin crust"
+    return theType
+
+def toss():
+    global theType
+    labelToss = Label(root, text = "Hand Tossed")
+    labelToss.grid(row = 17, column = 2)
+    theType = "hand tossed"
+    return theType
+
+def pan():
+    global theType
+    labelPan = Label(root, text = "      Pan      ")
+    labelPan.grid(row = 17, column = 2)  
+    theType = "pan"
+    return theType
+
+#create the functions for pizza sauce
+def marinara():
+    global sauce
+    labelMarinara = Label(root, text = "Marinara")
+    labelMarinara.grid(row = 19, column = 2)
+    sauce = "marinara"
+    return sauce
+
+def buffalo():
+    global sauce
+    labelBuffalo = Label(root, text = " Buffalo ")
+    labelBuffalo.grid(row = 19, column = 2)
+    sauce = "buffalo"
+    return sauce
+
+def bbq():
+    global sauce
+    labelBBQ = Label(root, text = "      BBQ      ")
+    labelBBQ.grid(row = 19, column = 2)
+    sauce = "BBQ"
+    return sauce
+
+#create the functions for toppings
+def xcheese():
+    labelXCheese = Label(root, text= "Extra Cheese")
+    labelXCheese.grid(row = 7, column = 2)
+    if 'Extra Cheese' not in toppings:
+        toppings.append('Extra Cheese')
+def tomatoes():
+    labelTomatoes = Label(root, text = "Tomatoes")
+    labelTomatoes.grid(row = 8, column = 2)
+    if 'Tomatoes' not in toppings:
+        toppings.append('Tomatoes')
+def onions():
+    labelOnions = Label(root, text = "Onions")
+    labelOnions.grid(row = 9, column = 2)
+    if 'Onions' not in toppings:
+        toppings.append('Onions')
+def peppers():
+    labelPeppers = Label(root, text = "Peppers")
+    labelPeppers.grid(row = 10, column = 2)
+    if 'Peppers' not in toppings:
+        toppings.append('Peppers')
+def mushrooms():
+    labelMushrooms = Label(root, text = "Mushrooms")
+    labelMushrooms.grid(row = 11, column = 2)
+    if 'Mushrooms' not in toppings:
+        toppings.append('Mushrooms')
+def pineapple():
+    labelPineapple = Label(root, text = "Pineapple")
+    labelPineapple.grid(row = 12, column = 2)
+    if 'Pineapple' not in toppings:
+        toppings.append('Pineapple')
+def pepperoni():
+    labelPepperoni = Label(root, text = "Pepperoni")
+    labelPepperoni.grid(row = 13, column = 2)
+    if 'Pepperoni' not in toppings:
+        toppings.append('Pepperoni')
+def sausage():
+    labelSausage = Label(root, text = "Sausage")
+    labelSausage.grid(row = 14, column = 2)
+    if 'Sausage' not in toppings:
+        toppings.append('Sausage')
+def ham():
+    labelHam = Label(root, text = "Ham")
+    labelHam.grid(row = 15, column = 2)
+    if 'Ham' not in toppings:
+        toppings.append('Ham')
+
+#create the function for the confirm button
+def confirm():
+    thankYou = Label(window2, text = "Thank you for your order.").pack()
+
+#create the functions for the submit button
+def submit():
+    global totalPrice
+    if size == "":
+        windowSizeError = Toplevel()
+        sizeErrorLabel = Label(windowSizeError, text = "Please select a pizza size.").pack()
+        sizeErrorButton = Button(windowSizeError, text = "Go Back", command = windowSizeError.destroy).pack()
+    if size != "" and theType == "":
+        windowTypeError = Toplevel()
+        typeErrorLabel = Label(windowTypeError, text = "Please select a pizza crust type.").pack()
+        typeErrorButton = Button(windowTypeError, text = "Go Back", command = windowTypeError.destroy).pack()
+    if size != "" and theType != "" and sauce == "":
+        windowSauceError = Toplevel()
+        sauceErrorLabel = Label(windowSauceError, text = "Please select a pizza sauce.").pack()
+        sauceErrorButton = Button(windowSauceError, text = "Go Back", command = windowSauceError.destroy).pack()
+    if size != "" and theType != "" and sauce != "":
+        window2 = Toplevel()
+        window2.title("Do you wish to submit this pizza order?")
+    #create the go back button
+        goBack = Button(window2, text = "Go Back", command = window2.destroy).pack()
+    #create the confirm button
+        toConfirm = Button(window2, text = "Confirm order:", command = confirm).pack()
+    #create the label that states what pizza you are confirming
+        totalPrice = priceCrust + (len(toppings) * .50)
+        finalPizza = Label(window2, text = ("Your pizza is a " + size + " " + theType + " pizza, with " + sauce + " as the sauce, and these toppings:")).pack()
+        finalPizza2 = Label(window2, text = toppings).pack()
+        finalPizza3 = Label(window2, text = ("Total Price: $" + str(totalPrice))).pack()
+       
+    
+def confirm():
+    window3 = Toplevel()
+    thankYou = Label(window3, text = "Thank you for your order.").pack()
+    exitAndClose = Button(window3, text = "Exit ordering system", command = root.destroy).pack()
+
+#create the buttons and labels for the pizza size
+crustSmall = Button(root, text ="Small", command=small)
+crustSmall.grid(row = 2, column = 1)
+crustMedium = Button(root, text = "Medium", command = medium)
+crustMedium.grid(row = 2, column = 2)
+crustLarge = Button(root, text = "Large", command = large)
+crustLarge.grid(row = 2, column = 3)
+
+#create the buttons and labels for the pizza type
+crustThin = Button(root, text = "Thin", command = thin)
+crustThin.grid(row = 16, column = 1)
+crustToss = Button(root, text = "Hand Tossed", command = toss)
+crustToss.grid(row = 16, column = 2)
+crustPan = Button(root, text = "Pan", command = pan)
+crustPan.grid(row = 16, column = 3)
+
+#create the buttons and lables for the pizza sauce
+marinaraSauce = Button(root, text = "Marinara", command = marinara)
+marinaraSauce.grid(row = 18, column = 1)
+buffaloSauce = Button(root, text = "Buffalo", command = buffalo)
+buffaloSauce.grid(row = 18, column = 2)
+bbqSauce = Button(root, text = "BBQ", command = bbq)
+bbqSauce.grid(row = 18, column = 3)
+
+#create the buttons and labels for the pizza toppings
+extraCheeseTop = Button(root, text = "Extra Cheese", command = xcheese)
+extraCheeseTop.grid(row = 4, column = 1)
+tomatoesTop = Button(root, text = "Tomatoes", command = tomatoes)
+tomatoesTop.grid(row = 4, column = 2)
+onionsTop = Button(root, text = "Onions", command = onions)
+onionsTop.grid(row = 4, column = 3)
+peppersTop = Button(root, text = "Peppers", command = peppers)
+peppersTop.grid(row = 5, column = 1)
+mushroomsTop = Button(root, text = "Mushrooms", command = mushrooms)
+mushroomsTop.grid(row = 5, column = 2)
+pineappleTop = Button(root, text = "Pineapple", command = pineapple)
+pineappleTop.grid(row = 5, column = 3)
+pepTop = Button(root, text = "Pepperoni", command = pepperoni)
+pepTop.grid(row = 6, column = 1)
+sausageTop = Button(root, text = "Sausage", command = sausage)
+sausageTop.grid(row = 6, column = 2)
+hamTop = Button(root, text = "Ham", command = ham)
+hamTop.grid(row = 6, column = 3)
+
+#create the exit button
+bQuit = Button(root, text = "Exit", command = root.destroy)
+bQuit.grid(row = 42, column = 1)
+
+#create a submit button
+bSubmit = Button(root, text = "Submit", command = submit)
+bSubmit.grid(row = 42, column = 3)
+
+
+root.mainloop() #create an event loop
+
+#you should make a row that contains 'cheese only' if there are no toppings on the pizza
+#you need to put in pictures
+#you need to make the list better, with commas
+#you need to format the price
+#you need to back a 'clear pizza' button
+   
+
