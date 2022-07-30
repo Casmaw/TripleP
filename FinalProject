@@ -1,0 +1,299 @@
+"""
+#Items removed
+Last date modified 7/30/2022
+
+The Purpose of this program is to provide a GUI to order a pizza.
+"""
+
+from tkinter import * #importing tkinter
+
+root = Tk() #create the root widget
+root.title("Peter's Pizza Palace")
+
+#the window size is not set becuase the window auto adjusts its size based on what is selected
+
+#declaring variables
+
+size = "" #this is the size of pizza
+theType = "" #this is the crust type chosen
+sauce = "" #this is the sauce type chosen
+priceCrust = 0.0 #this is the price of the pizza based on crust size
+toppings = [] #this is the list in which the toppings will be placed
+priceToppings = 0.0 #calculates the price of the toppings
+totalPrice = 0.0 #adds the price of the crust and toppings together, is the final price
+
+#create the methods for pizza size
+
+def small():
+    """These methods run when the button for pizza size is clicked. They display what button
+was selected with a label, set the size and priceCrust variables, and return the variables"""
+    global size  #my submit method didn't work unless I added the global variables inside these
+    global priceCrust
+    labelSmall = Label(root, text="Small") #displaying a label to let the customer know what size of pizza they ordered
+    labelSmall.grid(row = 3, column = 2) #placement
+    size = "small" #setting variable
+    priceCrust = 15.00 #setting variable
+    return size #returning variables
+    return priceCrust
+
+
+def medium():
+    """These methods run when the button for pizza size is clicked. They display what button
+was selected with a label, set the size and priceCrust variables, and return the variables"""
+    global size #declaring variables
+    global priceCrust
+    labelMedium = Label(root, text="Med") #displaying a label to let the customer know what size of pizza they ordered
+    labelMedium.grid(row = 3, column = 2) #placement
+    size = "medium" #setting variable
+    priceCrust = 18.00 #setting variable
+    return size #returning variables
+    return priceCrust
+
+def large():
+    """These methods run when the button for pizza size is clicked. They display what button
+was selected with a label, set the size and priceCrust variables, and return the variables"""
+    global size #declaring variables
+    global priceCrust
+    labelLarge = Label(root, text="Large") #displaying label
+    labelLarge.grid(row = 3, column = 2) #placing label
+    size = "large" #setting variable
+    priceCrust = 21.00 #setting variable
+    return size #returning variables
+    return priceCrust
+
+#create the functions for pizza type
+
+def thin():
+    """These methods run when the button for pizza crust type is clicked. It displays a label of the pizza crust
+type, then returns the type"""
+    global theType #declaring variable as global
+    labelThin = Label(root, text = "      Thin      ") #setting label
+    labelThin.grid(row = 17, column = 2) #placing label
+    theType = "thin crust" #setting the crust type variable
+    return theType #returning value
+
+def toss():
+    """These methods run when the button for pizza crust type is clicked. It displays a label of the pizza crust
+type, then returns the type"""
+    global theType #declaring variable as global 
+    labelToss = Label(root, text = "Hand Tossed") #setting label
+    labelToss.grid(row = 17, column = 2) #placing label
+    theType = "hand tossed" #setting the crust type variable
+    return theType #returning value
+
+def pan():
+    """These methods run when the button for pizza crust type is clicked. It displays a label of the pizza crust
+type, then returns the type"""
+    global theType #declaring variable as global
+    labelPan = Label(root, text = "        Pan        ") #setting label. FYI the spaces are needed to make the GUI look better
+    labelPan.grid(row = 17, column = 2)  #placing label
+    theType = "pan" #setting the crust type variable
+    return theType #returning value
+
+#create the functions for pizza sauce
+
+def marinara():
+    """These methods run when the button for pizza sauce type is clicked. It displays a label of the sauce type
+to the user, then returns the type"""
+    global sauce #declaring variable as global
+    labelMarinara = Label(root, text = "Marinara") #creating label
+    labelMarinara.grid(row = 19, column = 2) #placing label
+    sauce = "marinara" #setting the sauce type variable
+    return sauce #returning value
+
+def buffalo():
+    """These methods run when the button for pizza sauce type is clicked. It displays a label of the sauce type
+to the user, then returns the type"""
+    global sauce #declaring variable as global
+    labelBuffalo = Label(root, text = " Buffalo ") #creating label
+    labelBuffalo.grid(row = 19, column = 2) #placing label
+    sauce = "buffalo" #setting the sauce type variable
+    return sauce #returning value
+
+def bbq():
+    """These methods run when the button for pizza sauce type is clicked. It displays a label of the sauce type
+to the user, then returns the type"""
+    global sauce #declaring variable as global
+    labelBBQ = Label(root, text = "      BBQ      ") #creating label
+    labelBBQ.grid(row = 19, column = 2) #placing label
+    sauce = "BBQ" #setting the sauce type variable
+    return sauce #returning value
+
+#create the functions for toppings
+
+"""All of the toppings methods below do the same thing. When their button is clicked, it displays the label
+to the user. It also checks the toppings list to see if that topping is in there. If that topping is not
+in the list, it is added to the list."""
+
+def xcheese():
+    labelXCheese = Label(root, text= "Extra Cheese")
+    labelXCheese.grid(row = 7, column = 2)
+    if 'Extra Cheese' not in toppings:
+        toppings.append('Extra Cheese')
+def tomatoes():
+    labelTomatoes = Label(root, text = "Tomatoes")
+    labelTomatoes.grid(row = 8, column = 2)
+    if 'Tomatoes' not in toppings:
+        toppings.append('Tomatoes')
+def onions():
+    labelOnions = Label(root, text = "Onions")
+    labelOnions.grid(row = 9, column = 2)
+    if 'Onions' not in toppings:
+        toppings.append('Onions')
+def peppers():
+    labelPeppers = Label(root, text = "Peppers")
+    labelPeppers.grid(row = 10, column = 2)
+    if 'Peppers' not in toppings:
+        toppings.append('Peppers')
+def mushrooms():
+    labelMushrooms = Label(root, text = "Mushrooms")
+    labelMushrooms.grid(row = 11, column = 2)
+    if 'Mushrooms' not in toppings:
+        toppings.append('Mushrooms')
+def pineapple():
+    labelPineapple = Label(root, text = "Pineapple")
+    labelPineapple.grid(row = 12, column = 2)
+    if 'Pineapple' not in toppings:
+        toppings.append('Pineapple')
+def pepperoni():
+    labelPepperoni = Label(root, text = "Pepperoni")
+    labelPepperoni.grid(row = 13, column = 2)
+    if 'Pepperoni' not in toppings:
+        toppings.append('Pepperoni')
+def sausage():
+    labelSausage = Label(root, text = "Sausage")
+    labelSausage.grid(row = 14, column = 2)
+    if 'Sausage' not in toppings:
+        toppings.append('Sausage')
+def ham():
+    labelHam = Label(root, text = "Ham")
+    labelHam.grid(row = 15, column = 2)
+    if 'Ham' not in toppings:
+        toppings.append('Ham')
+        
+#create the method for the submit button
+
+def submit():
+    
+    """The first part of this method sets global variables. Then it validates the input. Naturally in order to make
+a pizza you need the size, sauce, and crust type. If buttons are not selected for these, a window pops up
+asking you to select this and returns you to the main window by destroying the pop up window. If all the
+required info is selected, it will display your pizza, toppings, and the final price. Final price has been
+formatted before being converted into a string for display."""
+    
+    global totalPrice #declaring variable as global
+    global toppings #declaring variable as global
+    if size == "": #validating input
+        windowSizeError = Toplevel() #creates pop up window
+        sizeErrorLabel = Label(windowSizeError, text = "Please select a pizza size.").pack()
+        sizeErrorButton = Button(windowSizeError, text = "Go Back", command = windowSizeError.destroy).pack()
+    if size != "" and theType == "": #validating input
+        windowTypeError = Toplevel() #creates pop up window
+        typeErrorLabel = Label(windowTypeError, text = "Please select a pizza crust type.").pack()
+        typeErrorButton = Button(windowTypeError, text = "Go Back", command = windowTypeError.destroy).pack()
+    if size != "" and theType != "" and sauce == "": #validating input
+        windowSauceError = Toplevel() #creates pop up window
+        sauceErrorLabel = Label(windowSauceError, text = "Please select a pizza sauce.").pack()
+        sauceErrorButton = Button(windowSauceError, text = "Go Back", command = windowSauceError.destroy).pack()
+    if size != "" and theType != "" and sauce != "":
+        window2 = Toplevel() #creates pop up window
+        window2.title("Do you wish to submit this pizza order?")
+    #create the exit button
+        goBack = Button(window2, text = "Exit", command = root.destroy).pack()
+    #create the confirm button
+    #in the real world, I would imagine this button would send an order to a physical printer or something
+    #Here it basically just starts the exit process
+        toConfirm = Button(window2, text = "Confirm order:", command = confirm).pack()
+    #create the label that states what pizza you are confirming
+    #total price is calculated here. crust + number of toppings. Each topping is 50 cents.
+        totalPrice = priceCrust + (len(toppings) * .50)
+    #total price is calculated here. crust + number of toppings
+        toppings = ', '.join(toppings) #You have to do this or you will have {} when putting a list in the label
+        finalPizza = Label(window2, text = ("Your pizza is a " + size + " " + theType + " pizza, with " + sauce + " sauce, and these toppings:")).pack()
+        finalPizza2 = Label(window2, text = toppings).pack() #toppings were put on an extra line to make it easier to read
+    #this formats the list so it appears nicely in the space and is readable
+        finalPizza3 = Label(window2, text = ("Total Price: $" + str(format(totalPrice,',.2f')))).pack()
+           
+def confirm():
+    """This displays you have confirmed your pizza and presents an button to exit the system."""
+    window3 = Toplevel() #opens a new window
+    thankYou = Label(window3, text = "Thank you for your order.").pack()
+    exitAndClose = Button(window3, text = "Exit ordering system", command = root.destroy).pack()
+
+"""Below are the buttons that are displayed on the GUI. Each button has text on it, has a command, and then
+establishs the button placement. All buttons in this section use the grid method to place."""
+
+#Buttons were chosen as the method for ordering pizzas instead of radials or checks
+#This is becuase personal experience has shown me that buttons are easier to see and press quickly and more accurately
+
+#create the buttons for the pizza size
+crustSmall = Button(root, text ="Small", command=small)
+crustSmall.grid(row = 2, column = 1)
+crustMedium = Button(root, text = "Medium", command = medium)
+crustMedium.grid(row = 2, column = 2)
+crustLarge = Button(root, text = "Large", command = large)
+crustLarge.grid(row = 2, column = 3)
+
+#create the buttons for the pizza type
+crustThin = Button(root, text = "Thin", command = thin)
+crustThin.grid(row = 16, column = 1)
+crustToss = Button(root, text = "Hand Tossed", command = toss)
+crustToss.grid(row = 16, column = 2)
+crustPan = Button(root, text = "Pan", command = pan)
+crustPan.grid(row = 16, column = 3)
+
+#create the buttons for the pizza sauce
+marinaraSauce = Button(root, text = "Marinara", command = marinara)
+marinaraSauce.grid(row = 18, column = 1)
+buffaloSauce = Button(root, text = "Buffalo", command = buffalo)
+buffaloSauce.grid(row = 18, column = 2)
+bbqSauce = Button(root, text = "BBQ", command = bbq)
+bbqSauce.grid(row = 18, column = 3)
+
+#create the buttons for the pizza toppings
+extraCheeseTop = Button(root, text = "Extra Cheese", command = xcheese)
+extraCheeseTop.grid(row = 4, column = 1)
+tomatoesTop = Button(root, text = "Tomatoes", command = tomatoes)
+tomatoesTop.grid(row = 4, column = 2)
+onionsTop = Button(root, text = "Onions", command = onions)
+onionsTop.grid(row = 4, column = 3)
+peppersTop = Button(root, text = "Peppers", command = peppers)
+peppersTop.grid(row = 5, column = 1)
+mushroomsTop = Button(root, text = "Mushrooms", command = mushrooms)
+mushroomsTop.grid(row = 5, column = 2)
+pineappleTop = Button(root, text = "Pineapple", command = pineapple)
+pineappleTop.grid(row = 5, column = 3)
+pepTop = Button(root, text = "Pepperoni", command = pepperoni)
+pepTop.grid(row = 6, column = 1)
+sausageTop = Button(root, text = "Sausage", command = sausage)
+sausageTop.grid(row = 6, column = 2)
+hamTop = Button(root, text = "Ham", command = ham)
+hamTop.grid(row = 6, column = 3)
+
+#The submit and exit buttons were placed on row 42 because this is the answer.
+#It is also becuase blank rows are ignored in tkinter, and I wanted to leave room for expansion later if needed
+
+#create the exit button
+bQuit = Button(root, text = "Exit", command = root.destroy) #This button destorys the root window, thus ending the program
+bQuit.grid(row = 42, column = 1) 
+
+#create a submit button
+bSubmit = Button(root, text = "Submit", command = submit)
+bSubmit.grid(row = 42, column = 3)
+
+"""Images were saved as png files. The double backspace is necessary to python ignores second backspace.
+Images were placed using the label and grid method. Text was added."""
+
+#import and place the images
+PPPImage = PhotoImage(file = "C:\\Users\\Cassie\\Desktop\\Peter's Pizza Palace.png")
+PPPImageLabel = Label(root, image = PPPImage, text = "This is an image of the logo.")
+PPPImageLabel.grid(row = 43, column =2)
+thankYouImage = PhotoImage(file = "C:\\Users\\Cassie\\Desktop\\ThankYou.png")
+thankYouLabel = Label(root, image = thankYouImage, text = "Thank you.")
+thankYouLabel.grid(row =44, column = 2)
+
+
+                      
+root.mainloop() #create an event loop
+   
+
